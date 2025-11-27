@@ -80,7 +80,6 @@ public:
         creators["move from group"] = &ChatTriggerContext::move_from_group;
         creators["stay"] = &ChatTriggerContext::stay;
         creators["flee"] = &ChatTriggerContext::flee;
-        creators["grind"] = &ChatTriggerContext::grind;
         creators["tank attack"] = &ChatTriggerContext::tank_attack;
         creators["talk"] = &ChatTriggerContext::talk;
         creators["enter vehicle"] = &ChatTriggerContext::enter_vehicle;

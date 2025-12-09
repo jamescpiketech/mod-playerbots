@@ -1471,6 +1471,10 @@ void PlayerbotAI::ApplyInstanceStrategies(uint32 mapId, bool tellMaster)
             strategyName = "karazhan";  // Karazhan
             break;
         case 533:
+            // Skip Naxx strategies for vanilla-tuned 10H variant; keep normal 10/25
+            if (bot && bot->GetRaidDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                return;
+
             strategyName = "naxx";  // Naxxramas
             break;
         case 544:

@@ -330,8 +330,16 @@ void EquipAction::EquipItem(Item* item)
 
 bool EquipUpgradesAction::Execute(Event event)
 {
-    if (!sPlayerbotAIConfig->autoEquipUpgradeLoot && !sRandomPlayerbotMgr->IsRandomBot(bot))
-        return false;
+    const bool isRandomBot = sRandomPlayerbotMgr->IsRandomBot(bot);
+    if (!isRandomBot)
+    {
+        uint32 botLevel = bot->GetLevel();
+        if (botLevel >= 60)
+            return false;
+
+        if (!sPlayerbotAIConfig->autoEquipUpgradeLoot)
+            return false;
+    }
 
     if (event.GetSource() == "trade status")
     {
